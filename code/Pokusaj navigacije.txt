@@ -1,0 +1,26 @@
+if(!isset($_POST['case'])&& !isset($_POST['cpu']) && !isset($_POST['mice'])){
+			$cntrl="1";
+		}
+		else{
+			$cntrl="0";
+		}
+		
+		if( $cntrl=="1" ||(isset($_POST['front']))){
+        $query = "SELECT * FROM products";
+		}
+		if(isset($_POST['case'])){
+				$query = "SELECT * FROM products WHERE category='Case'";
+			}
+			else if(isset($_POST['cpu'])){
+				$query = "SELECT * FROM products WHERE category='CPU'";
+			}
+			else if(isset($_POST['mice'])){
+				$query = "SELECT * FROM products WHERE category='Mouse'";
+			}
+			else if(isset($_POST['hd'])){
+				$query = "SELECT * FROM products WHERE category='Diskovi'";
+			}
+			else if(isset($_POST['keyb'])){
+				$query = "SELECT * FROM products WHERE category='Keyboard'";
+			}
+        $result = mysqli_query($mysqli, $query);
