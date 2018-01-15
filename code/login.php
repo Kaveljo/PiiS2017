@@ -40,15 +40,28 @@ $pass=$_POST['passw'];
 }
 	
 if(isset($_POST["log_in"])){
-	$login_in = mysqli_query($mysqli,"SELECT email, password FROM users WHERE email='$user' AND password = '$pass'");
-	if(mysqli_num_rows($login_in)>0){
-				$_SESSION['use']=$user;
-				header('Location:index.php');
-			}
+	if($user!="admin"){
+		$login_in = mysqli_query($mysqli,"SELECT email, password FROM users WHERE email='$user' AND password = '$pass'");
+		if(mysqli_num_rows($login_in)>0){
+					$_SESSION['use']=$user;
+					header('Location:index.php');
+				}
+		else{
+			echo '<script language="javascript">';
+			echo 'alert(" Incorrect email or password please try again!")';
+			echo '</script>';
+		}
+	}
 	else{
-		echo '<script language="javascript">';
-		echo 'alert(" Incorrect email or password please try again!")';
-		echo '</script>';
+		if($pass=="admin"){
+			$_SESSION['use']=$user;
+			header('Location:admin.php');
+		}
+		else{
+			echo '<script language="javascript">';
+			echo 'alert(" Incorrect email or password please try again!")';
+			echo '</script>';
+		}
 	}
 }
 ?>

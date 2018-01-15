@@ -71,7 +71,8 @@
 				if(isset($_POST['plati'])):
 					$payment = mysqli_query($mysqli,"SELECT name, card_number, datum, csc FROM cards WHERE name='$korisnik' AND card_number='$kartica' AND datum='$datum' AND csc='$csc'");
 					if(mysqli_num_rows($payment)>0){
-						$sql_u = "INSERT INTO purchases (date,price,user_id) VALUES (NOW(),'$price','$id')";
+						$nacin = "Placeno karticom";
+						$sql_u = "INSERT INTO purchases (date,price,nacin_placanja,user_id) VALUES (NOW(),'$price','$nacin','$id')";
 						mysqli_query($mysqli,$sql_u);
 						unset($_SESSION["shopping_cart"]);
 						header("Location:index.php");
@@ -89,7 +90,29 @@
 				</div>
 				<?php
 				endif;
-				?>	
+				
+				if(isset($_POST['CoD'])):?>
+					<form action="" method="post">
+					<br><br>
+					<h3>Ova pošiljka će biti poslana na:</h3><br><br>
+					<label for=ime_p style="margin= 5px">Name Lastname:</label><br>
+					<input type="text" name="ime_p" style="width:300px" value="<?php echo $name." ".$lname?>"><br><br>
+				
+					<label for=kartica style="margin= 5px">Addres:</label><br>
+					<input type="text" name="kartica" style="width:300px" value="<?php echo $adr?>"><br><br>
+					
+					<input type="submit" name="sendit" value="Plati: <?php echo $price?>$" class="btn btn-info" style="width:250px"/>
+					</form>
+				<?php
+				endif;
+					if(isset($_POST['sendit'])){
+						$nacin = "Placanje po dostavi";
+						$sql_u = "INSERT INTO purchases (date,price,nacin_placanja,user_id) VALUES (NOW(),'$price','$nacin','$id')";
+						mysqli_query($mysqli,$sql_u);
+						unset($_SESSION["shopping_cart"]);
+						header("Location:index.php");
+					}
+				?><a href="login.php" class="btn btn-danger" style="width:100px">Go back</a>	
 			</div>
 		</div>
 	</body>

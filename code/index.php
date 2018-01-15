@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'db.php';
+include 'topbar.php';
 $product_ids = array();
 
 if(filter_input(INPUT_POST, 'add_to_cart')){
@@ -55,7 +56,6 @@ function pre_r($array){
     print_r($array);
     echo '</pre>';
 }
-	if (isset($_SESSION['use']))
 ?>
 <!DOCTYPE html>
 <html>
@@ -67,11 +67,11 @@ function pre_r($array){
     <body style="background-color:#5174ad">
         <div style="background-color:#5174ad">
 		
-			<div style="text-align:right" class="col-sm-12">
+			<div style="text-align:right" class="col-sm-1">
 				<?php
 					if (!isset($_SESSION['use'])):
 				?>
-				<a href="login.php" class="btn btn-info" style="margin:5px" id="log" style="visability"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+				<a href="login.php" class="btn btn-info" style="margin:5px">Log in</a>
 				<?php endif; ?>
 				
 				<?php
@@ -79,6 +79,7 @@ function pre_r($array){
 					$milina=$_SESSION['use'];
 				?>
 				<form name="login_form" action="" method="post">
+					<a href="payments.php?mail=<?php echo $milina;?>" class="btn btn-info" style="margin:5px" >Payments</a>
 					<input type="submit" name="logout" style="margin: 10px;" class="btn btn-info" value="Log Out"/>
 				</form>
 				<?php endif; 
@@ -90,8 +91,17 @@ function pre_r($array){
 		</div><br><br><br><br>
 		<?php
 		
-		$query = "SELECT * FROM products";
-        $result = mysqli_query($mysqli, $query);
+		
+		
+		if(!isset($catg)){
+			$query = "SELECT * FROM products WHERE stocked='yes'";
+		}
+		
+		else{
+			$query = "SELECT * FROM products WHERE stocked='yes' AND category='$catg'";
+		}
+        
+		$result = mysqli_query($mysqli, $query);
 
         if ($result):
             if(mysqli_num_rows($result)>0):

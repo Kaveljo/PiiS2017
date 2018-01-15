@@ -73,7 +73,7 @@ if(isset($_POST["Reg_submit"])){
 			$sql_u = "INSERT INTO users (name,lastname,address,email,password) VALUES ('$u_name','$u_lastname','$u_adrs','$u_email','$u_passw')";
 			mysqli_query($mysqli,$sql_u);
 			
-			$message="Hi {$u_name},\nwelcome to our site!\nYou are so F**king awsome for registering.";
+			$message="Hi {$u_name},\nwelcome to our site!\nWe thank you for registering and\nhope you'll find all you're looking for in our shop.";
 			$subject="Registration";
 			mail($u_email,$subject,$message);
 			

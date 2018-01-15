@@ -9,7 +9,7 @@ CREATE TABLE `products` (
   
 `price` float NOT NULL, 
 
-`stocked` varchar(100) NOT NULL, 
+`stocked` varchar(100) NOT NULL,  
   
 PRIMARY KEY (id) 
 );
@@ -34,7 +34,7 @@ INSERT INTO `products`
 VALUES
 (5, 'AMD RYZEN 7 1700 8-Core 3.0 GHz Socket AM4 CPU', 299.99,'CPU', 'ryzen7.jpg', 'yes'),
 
-(6, 'NZXT H700i Mid Tower Chassis Tempered Glass Case', 199.99, 'Case', 'nzxth700i.jpg', 'yes'),
+(6, 'NZXT H700i Mid Tower Chassis Tempered Glass Case', 199.99, 'Case', 'nzxth700i.jpg', 'no'),
 
 (7, 'Razer Blackwidow Gaming  Mechanical Keyboard', 109.99, 'Keyboard', 'razer-blackwidow.jpg', 'yes'),
 
