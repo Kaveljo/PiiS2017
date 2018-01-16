@@ -67,7 +67,7 @@ function pre_r($array){
     <body style="background-color:#5174ad">
         <div style="background-color:#5174ad">
 		
-			<div style="text-align:right" class="col-sm-1">
+			<div style="text-align:right" class="col-sm-2">
 				<?php
 					if (!isset($_SESSION['use'])):
 				?>
@@ -75,11 +75,21 @@ function pre_r($array){
 				<?php endif; ?>
 				
 				<?php
-					if (isset($_SESSION['use'])):
+					if (isset($_SESSION['use']) && $_SESSION['use']!="admin"):
 					$milina=$_SESSION['use'];
 				?>
 				<form name="login_form" action="" method="post">
 					<a href="payments.php?mail=<?php echo $milina;?>" class="btn btn-info" style="margin:5px" >Payments</a>
+					<input type="submit" name="logout" style="margin: 10px;" class="btn btn-info" value="Log Out"/>
+				</form>
+				
+				<?php
+					endif;
+					if (isset($_SESSION['use']) && $_SESSION['use']=="admin"):
+					$milina=$_SESSION['use'];
+				?>
+				<form name="login_form" action="" method="post">
+					<a href="admin.php" class="btn btn-info" style="margin:5px" >Admin mode</a>
 					<input type="submit" name="logout" style="margin: 10px;" class="btn btn-info" value="Log Out"/>
 				</form>
 				<?php endif; 
@@ -93,7 +103,7 @@ function pre_r($array){
 		
 		
 		
-		if(!isset($catg)){
+		if(!isset($catg) && !isset($add_to_cart)){
 			$query = "SELECT * FROM products WHERE stocked='yes'";
 		}
 		

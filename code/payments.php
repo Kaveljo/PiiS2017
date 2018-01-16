@@ -24,7 +24,7 @@
 			$sql = "SELECT * FROM purchases WHERE user_id='$id'";
 				$result = mysqli_query($mysqli,$sql)or die(mysqli_error());
 					while($row = mysqli_fetch_array($result)):?>
-							<tr><td><?php echo $row['date']; ?><td><td><?php echo $row['price']; ?><td><td><?php echo $row['nacin_placanja']; ?><td><tr>
+							<tr><td><?php echo $row['date']; ?><td><td><?php echo $row['price']; ?> $<td><td><?php echo $row['nacin_placanja']; ?><td><tr>
 					<?php endwhile;
 					?>	
 				</table><br><br><a href="index.php" class="btn btn-danger" style="width:100px">Go back</a>

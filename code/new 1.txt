@@ -1,0 +1,9 @@
+<?php
+					if(isset($_POST['category'])):
+						$sql = "SELECT * FROM categories";
+								$result = mysqli_query($mysqli,$sql)or die(mysqli_error());
+									while($row = mysqli_fetch_array($result)):?>
+										<form action="" method="post" >
+											<input type="submit" name="ctg" class="btn btn-info" style="width:60%" value="<?php echo $row['name'];?>"/>
+										</form>
+							<?php endwhile; endif;?>

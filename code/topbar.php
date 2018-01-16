@@ -1,5 +1,4 @@
 <?php
-
 	require 'db.php';
 	?>
 	
@@ -10,7 +9,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 	</head>	
 		<body style="background-color:#5174ad">
-			<div style="text-align:left" class="col-sm-11" style="margin:5px">
+			<div style="text-align:left" class="col-sm-10" style="margin:5px">
 				<form action="" method="post" style="margin:5px">	
 					<input type="submit" name="home" value="HOME" class="btn btn-info" style="width:120px"/>
 				<?php	$sql = "SELECT * FROM categories ";
