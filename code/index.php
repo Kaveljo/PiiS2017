@@ -67,7 +67,7 @@ function pre_r($array){
     <body style="background-color:#5174ad">
         <div style="background-color:#5174ad">
 		
-			<div style="text-align:right" class="col-sm-2">
+			<div style="text-align:right" class="col-sm-3">
 				<?php
 					if (!isset($_SESSION['use'])):
 				?>

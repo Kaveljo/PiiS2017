@@ -1,6 +1,10 @@
 <?php
 	session_start();
-	require 'db.php';?>
+	require 'db.php';
+	if (!isset($_SESSION['use'])){
+		header("Location:login.php");
+	}
+	?>
 		
 <html>
 	<head>

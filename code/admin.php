@@ -1,6 +1,10 @@
 <?php
 	session_start();
-	require 'db.php';?>
+	require 'db.php';
+	if ($_SESSION['use']!="admin"){
+		header("Location:login.php");
+	}
+	?>
 		
 <html>
 <style> 

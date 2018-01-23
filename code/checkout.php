@@ -15,6 +15,7 @@
 	$lname=$row['lastname'];
 	$adr=$row['address'];
 	
+	
 ?>	
 <html>
 <style> 
