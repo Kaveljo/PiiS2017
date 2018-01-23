@@ -3,9 +3,9 @@ CREATE TABLE `purchases` (
   
 `date` DATE, 
   
-`image` varchar(100) NOT NULL,
+`nacin_placanja` varchar(100) NOT NULL,
 
-`category` int(11) NOT NULL,   
+`price` float(11) NOT NULL,   
   
 `user_id` int(11) NOT NULL ,  
   
