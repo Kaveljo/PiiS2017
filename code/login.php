@@ -8,7 +8,38 @@
 ?>
 <!DOCTYPE html>
 <html>
-<style>
+<style> 
+input[type=text] {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	border-radius: 10px;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+input[type=password] {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+	border-radius: 10px;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=password]:focus {
+    border: 3px solid #555;
+}
 </style>
 <head>
 		<title>Login</title>
@@ -19,7 +50,7 @@
 		<div class="col-sm-12"  style="text-align:center">
 			<form name="login_form" action="" method="post">
 				<label for=uname>E-mail:</label><br>
-				<input type="text" name="uname" style="width:300px" placeholder="E-mail..."><br><br>
+				<input type="text" name="uname" class="forme" style="width:300px" placeholder="E-mail..."><br><br>
 				<label for=passw style="margin= 5px">Password:</label><br>
 				<input type="password" name="passw" style="width:300px"  placeholder="Password..."><br><br>
 				<input type="submit" name="log_in" class="btn btn-info btn-bg" style="width:150px" value="Log in">
