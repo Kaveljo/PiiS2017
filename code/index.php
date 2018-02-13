@@ -95,6 +95,7 @@ function pre_r($array){
 				<?php endif; 
 					if( isset($_POST['logout'])){ 
 						unset($_SESSION["use"]);
+						unset($_SESSION["shopping_cart"]);
 						header("Location: login.php");
 					}
 				?>
