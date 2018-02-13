@@ -1,9 +1,7 @@
 <?php
 	session_start();
 	require 'db.php';
-	if ($_SESSION['use']!="admin"){
-		header("Location:login.php");
-	}
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -92,9 +90,10 @@ if(isset($_POST["dodaj"])){
 		}
 		else{
 			$query = mysqli_query($mysqli,"SELECT * FROM products WHERE name='$pname'");
-			if(mysqli_num_rows($query)>0){
+			$kateg = mysqli_query($mysqli,"SELECT * FROM categories WHERE name='$pcateg'");
+			if(mysqli_num_rows($query)>0 || mysqli_num_rows($kateg)==0){
 				echo '<script language="javascript">';
-				echo 'alert("Ovaj proizvod je vec dodan !!!")';
+				echo 'alert("Provjerite unesene podatke !!!")';
 				echo '</script>';
 			}
 			
